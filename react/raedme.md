@@ -110,3 +110,23 @@ When apps become complex:
 
 ##### what are synthetic events?
 > Synthetic Events in React are React’s own wrapper around the browser’s native events. They provide a consistent and cross-browser compatible way of handling events — so you don’t have to worry about differences between browsers (like Chrome, Firefox, etc.).
+
+##### what is useTransition() and useDeFerredValue() hook of react ?
+> useTransition() lets you mark some updates as “non-urgent” — so React can keep the UI responsive while doing heavy work in the background. useTransition() helps prevent lag by letting urgent updates (like typing) happen immediately and delaying slower ones (like filtering).
+
+> useDeferredValue() lets you delay a value’s update until React has time — useful when you’re passing a changing value to an expensive component.
+
+##### HOC !
+> A Higher-Order Component (HOC) is a function that takes a component and returns a new component with extra functionality.
+> It’s a pattern for reusing logic between components.
+
+##### What is the Render Props Pattern?
+> The Render Props pattern is when a component uses a function prop to decide what to render.
+
+##### What is the Compound Component Pattern?
+> The Compound Component Pattern allows multiple components to work together under a shared parent — communicating implicitly via React context or props.
+
+##### what is useActionState() and useOptimistic()?
+> useActionState() : A hook that helps handle form submissions or async actions with loading and error states — built for Server Actions. useActionState() manages pending, success, and error states automatically when using Server Actions.
+
+> Lets you show instant UI updates (optimistic UI) before the server confirms the change.

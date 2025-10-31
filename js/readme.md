@@ -70,12 +70,58 @@ But with asynchronous programming, it can preform many operation at a time witho
                               │
            ┌──────────────────┴──────────────────┐
            ▼                                     ▼
-   Executes Microtasks (Promises)      Executes Macrotasks (Timeouts, I/O)
-           │                                     │
-           └─────────────────────────────────────┘
-                              │
-                              ▼
-                    Repeats the cycle ♻️
 
-----
+Executes Microtasks (Promises) Executes Macrotasks (Timeouts, I/O)
+│ │
+└─────────────────────────────────────┘
+│
+▼
+Repeats the cycle ♻️
 
+---
+
+7. Event bubbling : means when you click on an element, the event also moves up (bubbles) to its parent elements.
+
+---
+
+8. Event delegation : means you put one event listener on a parent element to handle events from all its child elements — instead of adding listeners to each child.
+
+---
+
+9. Currying : means breaking a function with multiple arguments into a series of functions, each taking one argument at a time.
+   use:
+   - Helps reuse functions easily.
+   - Makes functions more flexible and modular.
+
+> Infinite currying : means creating a function that can be called repeatedly with one argument at a time, without a fixed number of parameters — until you decide to stop it.
+
+---
+
+10. Closures : A closure is when a function keeps access to variables from its parent function, even after the parent function has finished running.
+
+---
+
+11. Execution Context: The environment in which JS code runs (includes variables, this, and scope).
+
+---
+
+12. Call Stack: A stack where JS keeps track of function calls — last function in, first one out (LIFO).
+
+---
+
+13. Hoisting : JavaScript moves variable and function declarations to the top of their scope before execution. That’s why you can call a function before it’s defined.
+
+---
+
+14. Generators : Functions that can pause and resume execution.
+
+```javascript
+function* counter() {
+  yield 1;
+  yield 2;
+  yield 3;
+}
+const c = counter();
+console.log(c.next().value); // 1
+console.log(c.next().value); // 2
+```

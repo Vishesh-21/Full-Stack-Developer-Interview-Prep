@@ -111,6 +111,8 @@ Repeats the cycle ♻️
 
 13. Hoisting : JavaScript moves variable and function declarations to the top of their scope before execution. That’s why you can call a function before it’s defined.
 
+> Variable declarations (var, let, const) are hoisted, but only var is initialized with undefined.
+
 ---
 
 14. Generators : Functions that can pause and resume execution.
@@ -124,4 +126,60 @@ function* counter() {
 const c = counter();
 console.log(c.next().value); // 1
 console.log(c.next().value); // 2
+```
+
+---
+
+15. Temporal Dead Zone : The time between entering a scope and the actual declaration where accessing let/const throws an error.
+
+---
+
+16. First class functions : In JavaScript, a first-class function means functions are treated as values — they can be assigned to variables, passed as arguments, or returned from other functions.
+
+---
+
+17. Module Pattern : The Module Pattern allows you to create private and public members inside an object by using a function that returns an object.
+
+```javascript
+const CounterModule = (function () {
+  // Private variable
+  let count = 0;
+
+  // Public methods (returned object)
+  return {
+    increment: function () {
+      count++;
+      console.log(count);
+    },
+    decrement: function () {
+      count--;
+      console.log(count);
+    },
+    getCount: function () {
+      return count;
+    },
+  };
+})();
+```
+
+---
+
+18. Memoization : Memoization is a specific type of caching used to store results of function calls based on their input parameters, so if the same inputs occur again, the stored result is returned instead of recalculating. It’s an optimization technique for expensive or repetitive computations.
+
+---
+
+19. Function what thats any functions and then convert it into curried form.
+
+```javascript
+function curry(fn) {
+  return function curried(...args) {
+    if (args.length >= fn.length) {
+      return fn(...args);
+    } else {
+      return function (...nextArgs) {
+        return curried(...args, ...nextArgs);
+      };
+    }
+  };
+}
 ```

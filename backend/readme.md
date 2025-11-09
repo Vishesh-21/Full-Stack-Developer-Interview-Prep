@@ -10,3 +10,6 @@
 
 ##### Difference between HTTP and HTTPS?
 > HTTP sends data openly, while HTTPS sends data securely (encrypted) so no one can steal or change it. HTTP uses port 80 while HTTPS uses 443.
+
+#### what is webhook?
+> A webhook is a way for one system (application or server) to automatically send real-time data or updates to another system when a specific event happens. A webhook is like a notification system for apps — when something happens, one app calls another app by sending it data instantly.

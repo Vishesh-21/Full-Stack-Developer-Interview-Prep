@@ -68,6 +68,7 @@
 > | **6. Deploy** | Ready for production (static + serverless). |
 
 #### How Next.js Handles Bundling and Code Splitting Automatically
+
 | Feature            | What It Does                    | Benefit                |
 | ------------------ | ------------------------------- | ---------------------- |
 | **Bundling**       | Combines and optimizes all code | Smaller, faster builds |
@@ -75,3 +76,93 @@
 | **Prefetching**    | Loads next page in background   | Instant navigation     |
 | **Shared Bundles** | Common code reused across pages | Less duplicate JS      |
 
+#### What’s the difference between getStaticProps, getServerSideProps, and getStaticPaths?
+
+| Function               | Runs When       | Type                     | Use Case                               |
+| ---------------------- | --------------- | ------------------------ | -------------------------------------- |
+| **getStaticProps**     | Build time      | Static Generation        | Data rarely changes                    |
+| **getServerSideProps** | On each request | Server-side rendering    | Data changes often                     |
+| **getStaticPaths**     | Build time      | For dynamic static pages | Needed with dynamic routes (`[id].js`) |
+
+#### How does ISR (Incremental Static Regeneration) work internally?
+
+> ISR (Incremental Static Regeneration) allows you to update static pages after the site has been built, without rebuilding the entire site.
+> When a page uses getStaticProps with a revalidate value, Next.js first generates that page at build time and serves it as a static HTML file.
+> Whenever a user visits the page, Next.js serves the cached static version instantly. Then, it checks how much time has passed since the last generation.
+> If the time exceeds the revalidate period, Next.js triggers a background regeneration — it runs getStaticProps again, creates a new HTML version, and replaces the old one in the cache once ready.
+> This way, users always get a fast static response, while the content automatically updates in the background after a certain interval — without rebuilding the whole app.
+
+#### What are the performance trade-offs between SSG and SSR?
+
+| Feature / Factor                | **SSG (Static Site Generation)**            | **SSR (Server-Side Rendering)**               |
+| ------------------------------- | ------------------------------------------- | --------------------------------------------- |
+| **When HTML is generated**      | At build time                               | On every request                              |
+| **Page load speed**             | ⭐ **Very fast** (static files)             | ⚡ **Slower** (server must render each time)  |
+| **Server load**                 | 🔽 Low (CDN serves static files)            | 🔼 High (compute needed for rendering)        |
+| **Cost**                        | 💰 Cheaper (less server work)               | 💸 More expensive (more compute)              |
+| **Scalability**                 | 🚀 Extremely scalable (CDN-based)           | ⚠️ Limited by server capacity                 |
+| **Content freshness**           | ❌ Stale until rebuilt (unless ISR)         | ✔ Always fresh                                |
+| **Best for**                    | Blogs, docs, landing pages, marketing sites | Dashboards, authenticated pages, dynamic data |
+| **SEO**                         | ✔ Good (pre-rendered)                       | ✔ Good (server-rendered HTML)                 |
+| **Handling user-specific data** | ❌ Not possible directly                    | ✔ Possible                                    |
+| **Caching**                     | ✔ Very effective (static CDN caching)       | ⚠ Harder (dynamic content per request)        |
+| **Build time**                  | ⏳ Can be long for large sites              | ⏱ No build-time dependence                    |
+| **Runtime performance**         | ⚡ Excellent                                | 🐢 Depends on server speed                    |
+| **Fallback for errors**         | ⚠ Requires rebuild or ISR logic             | ✔ Can handle gracefully at runtime            |
+
+#### In the App Router, how does data fetching with fetch() differ from the old data fetching methods?
+
+> In the App Router, data fetching is server-first using the built-in fetch() API instead of page-level methods like getStaticProps and getServerSideProps. fetch() runs on the server, supports automatic caching, revalidation, deduplication, and integrates with React Server Components, enabling streaming and parallel rendering. SSG, SSR, and ISR are no longer separate mechanisms but are controlled through fetch caching options.
+
+#### What are the caching options available in Next.js data fetching (like revalidate, no-store, etc.)?
+
+> Next.js provides caching controls inside fetch() and Route Handlers, letting you choose between SSG, SSR, and ISR behavior.
+> NextJs cache options :
+>
+> - cache: "force-cache" → SSG
+> - cache: "no-store" → SSR
+> - next.revalidate → ISR
+> - next.revalidate: 0 → dynamic (SSR)
+> - next.revalidate: false → static
+> - next.tags + revalidateTag() → advanced cache invalidation
+> - Route handler flags (dynamic, revalidate, fetchCache) give additional control.
+
+#### How File-Based Routing Works Under the Hood in Next.js ?
+
+> Next.js uses your filesystem as the source of truth for routing. Instead of manually defining routes, Next.js scans your folders, analyzes filenames, and automatically builds a routing tree during the build process.
+
+#### How does file-based routing work under the hood in Next.js?
+
+> Next.js implements file-based routing by scanning the filesystem and generating an internal routing manifest that maps file + folder names to URL patterns. For the App Router, it builds a nested React Server Component tree using layouts, pages, loading, and error files. During a request, it matches the URL against this manifest, resolves dynamic parameters, and renders the appropriate components. Dynamic and catch-all routes are implemented by converting filenames like [id] and [...slug] into matchers.
+
+#### Explain parallel routes and intercepting routes in the App Router.
+
+> Parallel routes allow you to define multiple independently rendered UI segments using named slots (like @orders, @customers). Next.js renders these segments in parallel and injects them into the parent layout, enabling split views, multiple panels, and dashboard-style layouts. You define parallel routes using named slots that start with @.
+
+> Intercepting routes allow you to load another route without fully navigating to it. This is done through special patterns like (.), (..), and (…). They are ideal for modal-based navigation—showing a deeper route inside a modal while keeping the current page in the background.
+
+#### What’s the difference between useRouter() in the pages router vs the App Router?
+
+> In the Pages Router, useRouter() (from next/router) gives you full routing info like router.query, pathname, and route events because everything runs on the client. In the App Router, useRouter() (from next/navigation) is much simpler—it only provides client-side navigation methods like push, replace, back, and refresh. Route params and search params must be accessed separately using useParams() and useSearchParams().
+
+#### What’s the difference between Server Components and Client Components?
+
+| Feature / Capability                                        | **Server Components**                                   | **Client Components**                     |
+| ----------------------------------------------------------- | ------------------------------------------------------- | ----------------------------------------- |
+| **Where they run**                                          | Server                                                  | Browser (client-side)                     |
+| **Default type**                                            | ✔ Yes                                                   | ❌ No (must use `"use client"`)           |
+| **Can use React hooks (useState/useEffect/useRef)?**        | ❌ No                                                   | ✔ Yes                                     |
+| **Can handle events (onClick, onChange)?**                  | ❌ No                                                   | ✔ Yes                                     |
+| **Can access browser APIs (localStorage, window)?**         | ❌ No                                                   | ✔ Yes                                     |
+| **Can access server resources (DB, filesystem, env vars)?** | ✔ Yes                                                   | ❌ No                                     |
+| **Adds JavaScript to bundle?**                              | ❌ No                                                   | ✔ Yes                                     |
+| **Rendering mode**                                          | Rendered on server                                      | Hydrated + rendered on client             |
+| **Best for**                                                | Data fetching, backend logic, SEO content, static pages | Interactive UI, forms, modals, animations |
+| **Bundle size impact**                                      | Minimal (no client JS)                                  | Higher (JS sent to browser)               |
+| **Can be imported into**                                    | Server or Client Components                             | Only Client Components                    |
+| **Performance impact**                                      | Very fast (no hydration)                                | Slower due to hydration                   |
+| **Security**                                                | High (logic stays on server)                            | Lower (code exposed in browser)           |
+
+> Client Components are heavier because they require shipping and running JavaScript in the browser, whereas Server Components render fully on the server and ship only HTML.
+
+> A Client Component can live inside a Server Component, BUT a Server Component cannot be imported inside a Client Component.

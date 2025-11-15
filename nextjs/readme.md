@@ -166,3 +166,32 @@
 > Client Components are heavier because they require shipping and running JavaScript in the browser, whereas Server Components render fully on the server and ship only HTML.
 
 > A Client Component can live inside a Server Component, BUT a Server Component cannot be imported inside a Client Component.
+
+#### How nextjs handle the image optimization and lazy loading?
+
+| Feature               | How Next.js Handles It                                    |
+| --------------------- | --------------------------------------------------------- |
+| **Optimization**      | Compresses, resizes, and serves in modern formats (WebP). |
+| **Lazy Loading**      | Enabled by default using IntersectionObserver.            |
+| **Responsive Images** | Generates multiple sizes and picks the best one.          |
+| **Priority Loading**  | `priority` attribute for above-the-fold images.           |
+| **Remote Images**     | Allowlisting remote domains for optimization.             |
+
+#### How Automatic Static Optimization Works in Next.js
+
+> Automatic Static Optimization (ASO) is a feature in Next.js (Pages Router) where a page becomes automatically pre-rendered as static HTML if it does not require per-request data.
+
+#### When Should You Use Dynamic Imports in Next.js?
+
+> Use dynamic imports in Next.js when a component is heavy, only needed on the client, depends on browser APIs, or is not needed during the initial render. They help reduce bundle size, speed up page load, and improve performance.
+
+#### How Next.js Manages Caching & Revalidation on the Edge/CDN
+
+> Next.js (especially on Vercel) uses a full-stack caching model that combines:
+>
+> - CDN-level (edge) caching
+> - Server Component caching
+> - Route segment caching
+> - Fetch request caching
+> - ISR-style revalidation
+>   Together, these ensure fast delivery + fresh data across the globe.

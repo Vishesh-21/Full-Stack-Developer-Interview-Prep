@@ -199,4 +199,24 @@ a[c] = 456;
 console.log(a[b]);
 ```
 
+---
+
+20. DOM vs BOM
+    > DOM = Webpage structure : It represents HTML + XML documents in a tree structure so JavaScript can access, modify, add, or delete elements.
+
+> BOM = Browser features : It represents browser-specific objects that are NOT part of the webpage.
+
+| Feature             | DOM                                       | BOM                                          |
+| ------------------- | ----------------------------------------- | -------------------------------------------- |
+| **Definition**      | Structured representation of the document | Objects provided by the browser              |
+| **Focus**           | HTML content                              | Browser environment                          |
+| **Standardized by** | W3C                                       | No strict standard                           |
+| **Access**          | document                                  | window (global object)                       |
+| **Examples**        | document, body, forms, elements           | window, screen, navigator, history, location |
+| **Usage**           | Change UI                                 | Use browser functionality                    |
+
+
+---
+
+21. globalThis is a universal global object in JavaScript introduced to solve the problem of accessing the global scope in any environment (browser, Node.js, Web Workers, etc.).
 

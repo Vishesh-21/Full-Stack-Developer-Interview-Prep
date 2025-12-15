@@ -215,8 +215,8 @@ console.log(a[b]);
 | **Examples**        | document, body, forms, elements           | window, screen, navigator, history, location |
 | **Usage**           | Change UI                                 | Use browser functionality                    |
 
-
 ---
 
 21. globalThis is a universal global object in JavaScript introduced to solve the problem of accessing the global scope in any environment (browser, Node.js, Web Workers, etc.).
 
+**NOTE** : Regular function inside setTimeout loses object context.

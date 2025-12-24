@@ -145,7 +145,55 @@ IoT communication models define data exchange methods:
    - Useful for analytics and integration.
 
 #### Explain various IoT protocols used at different layers.
+
 - **Application Layer Protocols:** MQTT, CoAP, HTTP.
 - **Transport Layer Protocols:** TCP UDP.
 - **Network Layer Protocols:** IPv6, 6LoWPAN
 - **Data Link Layer Protocols:** Zigbee, bluetooth
+
+#### What is a Smart Thing in IoT?
+
+- A smart thing is a physical object with sensing, processing, and communication capabilities.
+
+- It contains sensors and actuators.
+
+- It uses a microcontroller or microprocessor.
+
+- It can communicate over the internet.
+
+- It operates autonomously or semi-autonomously.
+
+- Example: Smart thermostat, smart watch.
+
+#### What is 6LoWPAN?
+
+Stands for IPv6 over Low-Power Wireless Personal Area Networks. Enables IPv6 on constrained devices.Works with IEEE 802.15.4.
+
+#### What is latency in IoT?
+
+Time delay between data generation and response. Affects real-time applications. Caused by network delays. Reduced using edge computing.
+
+#### Compare cloud computing and edge computing in IoT.
+
+| Parameter          | Cloud Computing | Edge Computing |
+| ------------------ | --------------- | -------------- |
+| Data Processing    | Centralized     | Decentralized  |
+| Latency            | High            | Low            |
+| Bandwidth Usage    | High            | Low            |
+| Real-Time Response | Limited         | Excellent      |
+| Security           | Moderate        | High           |
+| Cost               | High            | Lower          |
+
+#### What is an actuator in IoT?
+
+Actuator converts electrical signals into physical action. Works opposite to a sensor. Controlled by microcontroller. Used to move or control mechanisms. Examples: Motor, relay, valve. Used in automation systems.
+
+#### What is device provisioning in IoT?
+
+Process of registering IoT devices.Assigns unique identity to devices.Configures security credentials.Enables device authentication.Required before device deployment.Ensures secure communication.
+
+#### What is OTA (Over-The-Air) update?
+Remote firmware update mechanism. No physical access required. Fixes bugs and vulnerabilities. Improves device performance. Saves maintenance cost. Used in large-scale deployments.
+
+#### What is sensor calibration?
+Process of adjusting sensor accuracy. Reduces measurement errors. Improves data reliability. Performed periodically. Uses standard reference values. Important for critical applications.

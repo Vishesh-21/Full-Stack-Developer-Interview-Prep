@@ -195,3 +195,20 @@
 > - Fetch request caching
 > - ISR-style revalidation
 >   Together, these ensure fast delivery + fresh data across the globe.
+
+#### Data fetching in nextJs.
+
+> Data fetching depends on when and where you want the data. Next.js data fetching is server-first by default, supports static, dynamic, and incremental rendering, and minimizes client-side JavaScript while improving SEO and performance. NextJs multiple data fetching strategies.
+>
+> - Server-side (default & recommended)
+> - Build-time (static)
+> - Request-time (dynamic)
+> - Client-side (browser)
+> - Mutations (Server Actions)
+
+> **Data fetching in Server component** -> SSG, SSR, ISR
+
+#### What is Partial Pre-Rendering (PPR)?
+> Partial Pre-Rendering = part of the page is static, part is dynamic
+
+

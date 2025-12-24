@@ -80,3 +80,41 @@ It has two main roles:
 
 ---
 
+**Monolith** : The entire application is built, deployed, and run as a single unit.A monolithic app contains all components in one codebase and one deployment. All of are tightly coupled and run together.
+
+Advantages of Monolith
+
+- Easy to build (great for beginners & startups)
+- Simple debugging
+- Faster initial development
+- Easy testing
+
+Disadvantages of Monolith
+
+- Hard to scale specific features
+- Tight coupling (one bug can crash whole app)
+- Slow deployments as app grows
+- Hard for large teams
+- Difficult to adopt new tech partially
+
+---
+
+**Micro-Services** : An application is broken into small, independent services where each service does one job and communicates with others via APIs.
+
+Advantages of Microservices
+
+✔ Independent deployment
+✔ Easy to scale specific services
+✔ Better fault isolation
+✔ Multiple tech stacks allowed
+✔ Suitable for large teams
+
+Disadvantages of Microservices
+
+❌ High complexity
+❌ Network latency
+❌ Difficult debugging
+❌ Requires DevOps knowledge
+❌ Costly infrastructure
+
+--- 

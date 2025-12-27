@@ -35,6 +35,24 @@ Imagine you have many apps sending data every second: payments, notifications, l
 - Decouples services - without kafka services talk directly with other services but with kafka, all communication goes through kafka (clean and scalable).
 - Super reliable
 
+`Where kafka is used :`
+| Company Use Case | Example |
+| ---------------- | -------------------------------------------------- |
+| Netflix | Streams viewing events, analytics, recommendations |
+| Uber | Tracks rides, drivers, locations in real time |
+| Amazon | Order tracking, inventory update across systems |
+| Banks | Fraud detection, real-time transactions |
+
+`Core Concepts of Kafka`
+| Term | Meaning |
+| ------------------ | -------------------------------------------------------------- |
+| **Producer** | Application that sends messages to Kafka |
+| **Consumer** | Application that reads messages from Kafka |
+| **Broker** | Kafka server storing messages |
+| **Topic** | A category or channel where messages are sent (e.g., "orders") |
+| **Partition** | Splitting a topic into multiple pieces for scalability |
+| **Consumer Group** | Multiple consumers sharing workload of one topic |
+
 ---
 
 | Kafka                                     | RabbitMQ                          |
@@ -117,4 +135,4 @@ Disadvantages of Microservices
 ❌ Requires DevOps knowledge
 ❌ Costly infrastructure
 
---- 
+---

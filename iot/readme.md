@@ -193,7 +193,109 @@ Actuator converts electrical signals into physical action. Works opposite to a s
 Process of registering IoT devices.Assigns unique identity to devices.Configures security credentials.Enables device authentication.Required before device deployment.Ensures secure communication.
 
 #### What is OTA (Over-The-Air) update?
+
 Remote firmware update mechanism. No physical access required. Fixes bugs and vulnerabilities. Improves device performance. Saves maintenance cost. Used in large-scale deployments.
 
 #### What is sensor calibration?
+
 Process of adjusting sensor accuracy. Reduces measurement errors. Improves data reliability. Performed periodically. Uses standard reference values. Important for critical applications.
+
+#### Define smart sensor.
+
+Sensor with embedded processing capability. Can sense, compute, and send data autonomously.
+
+**Note** : RFID - Radio Frequency Identification.
+
+#### Explain IoT data processing workflow.
+
+Data capture from sensors → Data preprocessing at edge → Data transmission to cloud → Data storage in database → Data analytics → Insights : control signals back to actuators
+
+#### Full Forms
+
+**IoT Protocols & Technologies**
+
+- MQTT – Message Queuing Telemetry Transport
+
+- CoAP – Constrained Application Protocol
+
+- AMQP – Advanced Message Queuing Protocol
+
+- DDS – Data Distribution Service
+
+- 6LoWPAN – IPv6 over Low-Power Wireless Personal Area Network
+
+- LoRa – Long Range
+
+- LoRaWAN – Long Range Wide Area Network
+
+- BLE – Bluetooth Low Energy
+
+- RFID – Radio Frequency Identification
+
+- NFC – Near Field Communication
+
+- ZB / Zigbee – IEEE 802.15.4 wireless standard
+
+- Wi-Fi – Wireless Fidelity
+
+**Sensors / Hardware / Devices**
+
+- GPS – Global Positioning System
+
+- LED – Light Emitting Diode
+
+- PIR – Passive Infrared Sensor
+
+- LDR – Light Dependent Resistor
+
+- ADC – Analog to Digital Converter
+
+- DAC – Digital to Analog Converter
+
+- MCU – Microcontroller Unit
+
+- SoC – System on Chip
+
+- PCB – Printed Circuit Board
+
+- CNN – Convolutional Neural Network
+
+- IoE – Internet of Everything
+
+- CPS – Cyber-Physical System
+
+- WNS/WNSN – Wireless Sensor Network
+
+- SSL – Secure Sockets Layer
+
+- TLS – Transport Layer Security
+
+- AES – Advanced Encryption Standard
+
+- OTP – One-Time Password
+
+- AES-256 – 256-bit encryption standard
+
+- GSM – Global System for Mobile Communication
+
+- CDMA – Code Division Multiple Access
+
+#### Difference between MQTT, CoAP, and Zigbee?
+
+**MQTT**
+- **Purpose**: Lightweight messaging protocol for constrained devices.
+- **Communication Model**: Publish/Subscribe.
+- **Transport**: TCP.
+- **Use Case**: Real-time data streaming, telemetry.
+
+**CoAP**
+- **Purpose**: RESTful protocol for constrained devices.
+- **Communication Model**: Request/Response.
+- **Transport**: UDP.
+- **Use Case**: Web-like communication, resource discovery.
+
+**Zigbee**
+- **Purpose**: Low-power, short-range wireless mesh network.
+- **Communication Model**: Peer-to-peer, broadcast.
+- **Transport**: IEEE 802.15.4 (physical and MAC layers).
+- **Use Case**: Home automation, industrial control.

@@ -209,6 +209,17 @@
 > **Data fetching in Server component** -> SSG, SSR, ISR
 
 #### What is Partial Pre-Rendering (PPR)?
+
 > Partial Pre-Rendering = part of the page is static, part is dynamic
 
+#### When to use server actions and then to use api architecture?
 
+| Feature            | Server Actions                               | API Routes                     |
+| ------------------ | -------------------------------------------- | ------------------------------ |
+| Best for           | UI-triggered server logic (forms, mutations) | Reusable backend endpoints     |
+| Accessed by        | Only inside Next.js app                      | Web, mobile, external          |
+| Network cost       | No network call (runs server-side)           | Client → server fetch          |
+| Boilerplate        | Minimal                                      | Higher                         |
+| Security           | DB stays on server                           | Must secure endpoints manually |
+| Good for DB writes | Yes                                          | Yes                            |
+| Good for REST APIs | No                                           | Yes                            |

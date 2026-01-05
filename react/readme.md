@@ -189,7 +189,48 @@ When apps become complex:
 > Index keys break identity when items reorder. This can cause incorrect UI updates and state bugs.
 
 ##### What is Compound Component Pattern?
+
 > A pattern where components share state implicitly. It improves API flexibility and readability.
 
 ##### What is Ref Forwarding?
+
 > Ref forwarding passes a ref through a component. It allows parent components to access child DOM nodes.
+
+##### What happens during the React build process?
+
+The React build process converts developer-friendly source code into optimized static assets that browsers can run efficiently.
+
+- Transpilation
+- Bundling
+- Minification
+- Asset Optimization
+- Source Maps
+- Environment Configuration
+- code splitting
+
+##### Difference between Development and Production build in React
+
+| Aspect         | Development Build | Production Build |
+| -------------- | ----------------- | ---------------- |
+| Purpose        | Debugging         | Performance      |
+| Bundle size    | Large             | Small            |
+| Error messages | Detailed          | Minimized        |
+| Hot Reload     | Enabled           | Disabled         |
+| Source maps    | Full              | Limited          |
+| Performance    | Slower            | Optimized        |
+| React warnings | Enabled           | Removed          |
+
+##### Vite vs Turbopack
+
+| Feature             | Vite               | Turbopack      |
+| ------------------- | ------------------ | -------------- |
+| Language            | JS + Rollup        | Rust           |
+| Framework focus     | Framework-agnostic | Next.js        |
+| Dev speed           | Very fast          | Extremely fast |
+| Production maturity | Stable             | Still evolving |
+
+> Vite and Turbopack significantly reduce development build times by avoiding full rebundles and leveraging modern module systems.
+
+> Hydration is the process where React attaches event listeners and state to HTML that was rendered on the server.
+
+> During the React build process, JSX and modern JavaScript are transpiled, bundled, minified, and optimized for production. Development builds prioritize debugging, while production builds focus on performance. Tools like Vite and Turbopack improve build speed and developer experience by leveraging modern module systems. In SSR frameworks like Next.js, hydration connects server-rendered HTML with client-side React to make the UI interactive.

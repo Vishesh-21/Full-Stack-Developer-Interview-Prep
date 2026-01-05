@@ -223,3 +223,8 @@
 | Security           | DB stays on server                           | Must secure endpoints manually |
 | Good for DB writes | Yes                                          | Yes                            |
 | Good for REST APIs | No                                           | Yes                            |
+
+
+**SSR Flow in Next.js:**
+
+Server renders HTML ➡️ HTML sent to browser ➡️ Browser displays content immediately ➡️ React JS loads ➡️ Hydration happens ➡️ Page becomes interactive

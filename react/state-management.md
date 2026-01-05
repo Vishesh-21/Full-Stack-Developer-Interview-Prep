@@ -37,4 +37,6 @@
 > - Predictable reducer pattern for managing complex state.
 >   So RTK uses Context API internally, but adds subscription logic, selective rendering, and middleware on top.
 
+> **NOTE : Redux enforces predictable state management using unidirectional data flow, while Redux Toolkit reduces complexity by eliminating boilerplate, handling immutability with Immer, and simplifying async logic through built-in tools like createAsyncThunk and RTK Query.**
+
 

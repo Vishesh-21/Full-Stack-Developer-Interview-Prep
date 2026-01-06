@@ -83,6 +83,8 @@ _Simple_
 
 > Rate Limiting is a backend technique used to control how many requests a client can make to a server within a specific time period. RL helps to Prevent DDoS attacks.
 
+> **A DDoS attack (Distributed Denial of Service attack)** is a cyberattack in which multiple systems flood a target server, service, or network with excessive traffic, making it slow, unstable, or completely unavailable to legitimate users. A DDoS attack overwhelms a system with traffic from many sources so that genuine users cannot access the service.
+
 ##### Types of rate limiting
 
 > Fixed Window (Window Counter) : Time is divided into fixed windows (e.g., every 1 minute), Each request increments a counter in that window, When limit is reached → block.
@@ -95,7 +97,9 @@ _Simple_
 
 > Leaky Bucket : Requests enter a queue (bucket), Requests leave bucket at a constant rate (like water leaking).
 
-> ##### Which type is MOST used in real backend systems? --- Token Bucket + Redis is the industry standard
+##### Which type is MOST used in real backend systems?
+
+--- Token Bucket + Redis is the industry standard
 
 #### How Redis is used for rate limiting?
 
@@ -177,15 +181,36 @@ Refresh Token Flow is used to keep users logged in securely without asking them 
 >   Because: Access tokens expire quickly (like 15 minutes). If a hacker steals an access token, it becomes useless after a short time. Requiring the user to log in again every 15 minutes is bad UX. So we use: Short-lived access token → protects security, Long-lived refresh token → keeps user logged in
 
 **How Refresh Token Flow Works (Step-by-Step)**
+
 - step 1 :- User logs in : User sends email & password, Server verifies and returns: access token and refresh token.
 
 - step 2 :- Client stores tokens : Access Token → memory / localStorage & Refresh Token → HTTP-only cookie (most secure)
 
 - step 3 :- Client uses Access Token : Client uses Access Token
 
-- step 4 :- Access Token expires 
-> User tries a new request… sever respond with 401 - unauthorized
+- step 4 :- Access Token expires
+
+  > User tries a new request… sever respond with 401 - unauthorized
 
 - step 5 :- Client sends Refresh Token automatically : Server verifies refresh token.
 
 - step 6 : Server returns a NEW Access Token
+
+#### How JWT Refresh Tokens Are Verified and Rotated
+
+Step 1: Verification
+When a client sends a refresh token to get a new access token:
+
+1. Server checks if the refresh token is valid JWT:
+   - Signature matches
+   - Not expired
+2. Optionally, server checks database or blacklist to ensure token hasn’t been revoked
+
+Step 2: Rotation
+Refresh token rotation means issuing a new refresh token every time the old one is used:
+1. Client sends old refresh token → server validates
+2. Server generates new access token + new refresh token
+3. Server invalidates old refresh token in DB or blacklist
+4. New refresh token sent to client
+
+**Benefit**: If a refresh token is stolen, it cannot be reused after rotation → improves security.

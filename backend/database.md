@@ -183,13 +183,6 @@ Indexes are data structures that improve the speed of data retrieval operations 
 - Foreign Keys: Can improve performance of joins involving foreign keys.
 - Sorting and Grouping: Can make ORDER BY and GROUP BY operations faster.
 
-| Clustered Index        | Non-Clustered Index       |
-| ---------------------- | ------------------------- |
-| Physically sorts data  | Does not sort actual data |
-| Only one per table     | Multiple allowed          |
-| Faster retrieval       | Slightly slower           |
-| Primary key by default | Secondary indexes         |
-
 #### What is the difference between clustered and non-clustered index?
 
 | Clustered Index        | Non-Clustered Index       |

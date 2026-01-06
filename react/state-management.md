@@ -14,6 +14,13 @@
 > When you wrap components with a Context.Provider, Every time the value changes, all components consuming this context via useContext will re-render. Necessary to see updated data.
 > Note -> React uses Object reference comparison (===) to decide if the value changed.If you pass a new object every render, all consumers re-render, even if the content is same.That’s why useMemo is recommended for objects or arrays.
 
+#### Difference between context and redux?
+> **Context** : Creates a global value ➡️ Makes it available to all consuming components ➡️ Triggers re-render of all consumers when value changes
+> **Characteristics**
+> State lives inside React,  No rules on how state changes, No built-in optimization, No middleware or debugging tools
+
+> **Redux** :Stores state in one central store ➡️ Updates state using pure reducer functions ➡️ Uses actions to describe what happened ➡️ Works outside React. Core principle or redux : Single source of truth, State is read-only, Changes via pure reducers
+
 #### React Redux Tool Kit
 
 > - Store – Holds the entire state of the app.Created with configureStore().

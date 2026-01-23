@@ -105,13 +105,14 @@ app.get("/", (req, res) => {
 
 > Redis caching optimizes Express applications by reducing database load, improving response time, enabling scalability, and supporting features like session management, rate limiting, and token handling.
 
-**Explain clustering in Express** : Clustering allows Node.js to use multiple CPU cores by spawning worker processes that share the same server port.
+**Explain clustering in Express** : Clustering is a way to run multiple Node.js processes to use all CPU cores, since Node.js is single-threaded. It improves performance, scalability, and reliability by distributing requests across worker processes.
 
 **NEED**
 
 - Node.js runs on a single-threaded event loop
 - One process can use only one CPU core
 - On multi-core machines, this leads to underutilization
+- Each worker runs its own Express server.
 
 Clustering solves this by running multiple Node.js processes.
 
@@ -202,8 +203,60 @@ NestJS is a full-featured framework built on Express or Fastify. It offers a mod
 > 4. Logout / Token Revocation: Remove or blacklist refresh token in Redis. Access token becomes invalid after expiry.
 
 **Why not store JWT in Redis**
+
 - JWTs are stateless; they contain all info needed for verification.
 - Storing JWTs in Redis makes them stateful, adding unnecessary complexity and latency.
 - Every request would require a Redis lookup, reducing scalability.
 - Valid use cases for Redis: Token revocation / blacklisting, Storing refresh tokens.
+
+> Redis should store refresh tokens, blacklisted access tokens, session metadata, rate limit counters.
+
+**Brute Force Attack :** An attack where an attacker tries many username/password combinations repeatedly to gain unauthorized access.
+
+**DDoS Attack :**An attack where multiple systems flood a server with traffic, making it unavailable to real users.
+
+**Design a notification service (push/email)**
+
+- Separate service for notifications
+
+- Use message queue (RabbitMQ, Kafka)
+
+- Express API triggers messages to the queue
+
+- Worker services consume the queue and send notifications
+
+- Retry logic and failure handling
+
+**Design a scalable chat application**
+
+- Express + WebSocket (Socket.io)
+
+- Redis pub/sub for multiple instances
+
+- Message persistence in DB (MongoDB/Postgres)
+
+- Queueing for offline messages
+
+- Horizontal scaling
+
+**Design a search API**
+
+- Express endpoint with query parameters
+
+- Database indexing and full-text search
+
+- Optional Elasticsearch or Algolia integration
+
+- Pagination and rate limiting
+
+- Caching frequent searches in Redis
+
+**Design a file download service**
+Scenario: Serve large files without blocking Express.
+
+- Stream files using res.pipe() or fs.createReadStream
+- Avoid reading the whole file into memory
+- Rate limiting and authentication
+- Use CDN for large-scale delivery
+
 

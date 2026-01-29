@@ -211,4 +211,53 @@ Problem : Blocks concurrent operations → performance drop.
 
 **Sharding :** Sharding is a database scaling technique that splits a large database into smaller, more manageable pieces called shards. Each shard contains a subset of the data and is stored on a separate database server (or cluster). This allows the system to handle more data and traffic by distributing the load across multiple servers.
 
+---
+
+#### what is difference between table and view
+
+| Table                    | View                |
+| ------------------------ | ------------------- |
+| Stores actual data       | Does not store data |
+| Occupies storage         | No extra storage    |
+| Can be modified directly | Usually read-only   |
+| Faster for large data    | Slightly slower     |
+
+---
+
+**Composite key**: A composite key is a primary key made of multiple columns. PRIMARY KEY (order_id, product_id)
+
+---
+
+| Normalization       | Denormalization     |
+| ------------------- | ------------------- |
+| Less duplicate data | More duplicate data |
+| More joins          | Fewer joins         |
+| Write optimized     | Read optimized      |
+
+---
+
+**Query Optimization Techniques**
+
+- Use proper indexes
+- avoid used of select \*
+- use where early : Reduce rows before joins
+- optimize joins
+- Avoid subqueries when joins are better
+- Limit result sets using limit
+
+**Trigger** : A trigger is a SQL code that automatically executes when an event occurs on a table.
+
+**Sharding** : Sharding is splitting data horizontally across multiple databases.
+
+---
+
+**How does SQL handle concurrency?**
+SQL handles concurrency using locks and isolation levels.
+Lock types:
+
+- Shared (read)
+- Exclusive (write)
+
+---
+
 

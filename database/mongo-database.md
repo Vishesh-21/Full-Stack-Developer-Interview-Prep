@@ -120,4 +120,16 @@ Fact: MySQL (and most SQL databases) can scale horizontally, but it’s harder t
 
 ---
 
-**how to scale vertically or horizontally?**
+**What is replication in NoSQL databases**?
+
+- Replication = copying data across multiple nodes for high availability
+- MongoDB: primary node + secondary nodes
+- Changes on primary automatically propagate to secondaries
+- Provides fault tolerance and read scalability
+
+---
+
+**How does MongoDB handle joins (lookup)?**
+
+- mongoDB does not have traditional SQL joins, but $lookup simulates joins
+- performs left outer join between collections

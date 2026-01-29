@@ -129,6 +129,11 @@ Accessibility attributes for screen readers.
 **What is nodeType?**
 nodeType is a property that returns a numeric code representing the type of a DOM node (e.g., element, text, comment).
 
+**Difference between removeChild() and remove()?**
+removeChild() requires parent reference; remove() does not.
+
+> Removes an element from the DOM directly.
+
 **Why are DOM operations slower than normal JavaScript operations?**
 Because the DOM lives in the browser’s rendering engine, not in the JS engine. Every DOM read/write may cause layout calculation, style recalculation, reflow, or repaint, which are expensive operations.
 
@@ -175,5 +180,9 @@ When JS requests layout info (offsetHeight) immediately after a style change, th
 
 > It observes structural DOM changes, not user interactions, and runs asynchronously in micro-tasks.
 
+**Difference between preventDefault() and stopPropagation()?**
+preventDefault(): Stops default browser behavior
+stopPropagation(): Stops event bubbling
 
-
+**What happens when you set display: none?**
+Element is removed from layout flow and triggers reflow.

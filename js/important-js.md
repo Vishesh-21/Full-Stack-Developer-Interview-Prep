@@ -24,14 +24,6 @@ IIFE stands for Immediately Invoked Function Expression. It is a function that r
 
 ---
 
-NaN !== anything (even NaN)
-null == undefined (only this case)
-Arrays & Objects → reference comparison
-== converts types
-=== does NOT
-
----
-
 **How js code execute?**
 A js engine has
 
@@ -196,19 +188,18 @@ In real analogy - js lets you write anything but ts make sure what you write act
 
 ---
 
-**Lexical Environment :** Lexical Environment in JavaScript is the internal memory space where variables and functions are stored based on where the code is written (lexical = location in code). It decides what variables a function can access.
+**Lexical Environment :** A lexical environment is the place where a function or block keeps track of its variables, along with a reference to its outer environment.
 
 ---
 
 **Why js is simple threaded\***
 JavaScript is single-threaded, meaning it can execute only one task at a time on the call stack.
 
-***Core Reason: Browser Safety***
+**_Core Reason: Browser Safety_**
 JavaScript was designed to: Manipulate the DOM, Handle user interactions
 If multiple threads modified the DOM simultaneously: Race conditions would occur, UI state would become unpredictable
 
 so Single-threading ensures safe and consistent DOM updates.
 
-***Simplicity & Predictability***
+**_Simplicity & Predictability_**
 Avoids deadlocks, Makes debugging easier, Avoids complex thread synchronization
-

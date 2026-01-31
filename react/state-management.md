@@ -46,4 +46,13 @@
 
 > **NOTE : Redux enforces predictable state management using unidirectional data flow, while Redux Toolkit reduces complexity by eliminating boilerplate, handling immutability with Immer, and simplifying async logic through built-in tools like createAsyncThunk and RTK Query.**
 
+**What performance issue does Context have? and redux solves**
+- When a Context value changes, all consuming components re-render, even if they only use part of the value.
+- This can slow down large apps with frequently changing global state.
 
+***How Redux solves it:***
+- Selective subscription: Components subscribe to specific slices of state, so unrelated updates don’t trigger re-renders.
+- Optimized updates: Redux uses connect or useSelector with shallow equality checks to minimize renders.
+- Middleware & batching: Allows more fine-grained control over updates.
+
+> Context triggers all consumers on value change, causing performance hits; Redux allows selective updates, avoiding unnecessary re-renders.

@@ -186,6 +186,37 @@ useLayoutEffect runs before paint (synchronous), useEffect runs after paint (asy
 **What is a memory leak in React apps?**
 Uncleaned subscriptions, timers, or observers causing updates after unmount.
 
+**Virtual Dom** : Many think the VDOM is just "faster." Technically, JS objects are fast, but the VDOM's real power is Minimization. It calculates the smallest set of changes needed to sync the UI with the real DOM.
 
+**How does the 'Diffing' algorithm handle different element types at the same position?**
+***Same position, different element type***
+- React unmounts the entire old subtree
+- React destroys all state, refs, and event handlers
+- React creates a new DOM node and subtree from scratch
+If element types differ at the same position, React unmounts the old tree and mounts a new one instead of diffing.
 
+**What is the difference between the "Render Phase" and the "Commit Phase"?**
+these two are the phases of reconcilliation.
+- ***Render Phase*** : The Render Phase is when React determines what needs to change (diffing). This phase is asynchronous and can be paused/interrupted.
+- ***Commit Phase*** : The Commit Phase is when React applies those changes to the real DOM and runs lifecycles; this phase is synchronous and cannot be interrupted."
+
+**Why is a "stale closure" a common issue with useEffect?**
+A stale closure occurs when a function inside an effect captures a state variable from a previous render. If that variable isn't in the dependency array, the effect continues to use the old value even after the state has updated. solutions : ***useRef*** gives access to fresh values inside closures without causing re-renders or effect re-execution.
+
+**Controlled vs. Uncontrolled components: Which is better?**
+Controlled components have their state managed by React (value and onChange). Uncontrolled components let the DOM handle the data, accessed via refs. Controlled is usually preferred for instant validation, but Uncontrolled is often faster to implement for simple forms
+
+> Uncontrolled components are better when frequent input updates would cause unnecessary re-renders and hurt performance.
+
+**When should you use React.memo()?**
+It’s a Higher Order Component that prevents a component from re-rendering unless its props change.
+
+**What is "Component Composition" vs. "Inheritance"?**
+React follows a "Has-A" relationship, not an "Is-A" relationship. React recommends Composition over Inheritance. Instead of extending classes, we build components by passing other components as props (like the children prop) or specialized props. This makes the code much more flexible and reusable.
+
+**Why can't you call Hooks inside loops or conditions?**
+React stores Hook data in an internal array. If you change the order of calls by putting a Hook inside a condition or loop, React will lose track of which state belongs to which Hook, leading to unpredictable bugs.
+
+**Do two components using the same custom hook share the same state?**
+No, each call gets its own isolated state
 

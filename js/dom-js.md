@@ -21,11 +21,23 @@ Event bubbling is when an event propagates from the target element up to its anc
 **What is event delegation?**
 Event delegation attaches a single event listener to a parent element to handle events for its children using event.target.
 
+**what is difference between display:none and visibility:hidden?**
+display: none → removed from layout, triggers reflow
+visibility: hidden → space preserved, only repaint
+
+**How does IntersectionObserver work internally?**
+It is asynchronous and handled by the browser, avoiding continuous polling like scroll events, thus minimizing layout recalculations.
+
 **Difference between innerHTML, innerText, and textContent?**
 
 - innerHTML: Gets/sets HTML content
 - innerText: Gets/sets visible text, considers CSS
 - textContent: Gets/sets all text, ignores CSS
+
+**Why is innerHTML considered dangerous?**
+- Cause XSS vulnerabilities
+- Destroy existing event listeners
+- Trigger full reflow
 
 **What is DOMContentLoaded?**
 It fires when the HTML is fully parsed, without waiting for images or stylesheets.

@@ -220,3 +220,11 @@ React stores Hook data in an internal array. If you change the order of calls by
 **Do two components using the same custom hook share the same state?**
 No, each call gets its own isolated state
 
+**React Fiber** : React Fiber is React’s internal rendering engine that breaks rendering work into small units, allowing React to pause, prioritize, and resume updates for better performance. Fiber is a re-implementation of React’s reconciliation algorithm. It enables incremental rendering, update prioritization, and interruptible work, which is why features like concurrent rendering are possible.
+
+***What problems Fiber solves***
+Old React used a stack-based reconciler → rendering was blocking
+Fiber introduces a linked list of work units (fibers) → rendering can be:
+- paused
+- resumed
+- prioritized

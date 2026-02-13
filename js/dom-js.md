@@ -179,22 +179,12 @@ It is asynchronous and handled by the browser, avoiding continuous polling like 
 **What is forced synchronous layout?**
 When JS requests layout info (offsetHeight) immediately after a style change, the browser must flush pending changes instantly.
 
-**Why is innerHTML considered dangerous?**
-
-- It can lead to XSS attacks if used with untrusted input.
-- It can cause performance issues by re-parsing and re-rendering large sections of the DOM.
-- It removes event listeners attached to child elements.
-
 **How does MutationObserver differ from event listeners?**
 
 - MutationObserver watches for DOM changes (add/remove nodes, attribute changes).
 - Event listeners respond to specific events (click, input, etc.) on elements.
 
 > It observes structural DOM changes, not user interactions, and runs asynchronously in micro-tasks.
-
-**Difference between preventDefault() and stopPropagation()?**
-preventDefault(): Stops default browser behavior
-stopPropagation(): Stops event bubbling
 
 **What happens when you set display: none?**
 Element is removed from layout flow and triggers reflow.

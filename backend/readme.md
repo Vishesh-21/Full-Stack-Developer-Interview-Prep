@@ -83,11 +83,18 @@ _Simple_
 
 > Rate Limiting is a backend technique used to control how many requests a client can make to a server within a specific time period. RL helps to Prevent DDoS attacks.
 
-> **A DDoS attack (Distributed Denial of Service attack)** is a cyberattack in which multiple systems flood a target server, service, or network with excessive traffic, making it slow, unstable, or completely unavailable to legitimate users. A DDoS attack overwhelms a system with traffic from many sources so that genuine users cannot access the service.
+> **A DDoS attack (Distributed Denial of Service attack)** A DDoS attack (Distributed Denial of Service) is when a lot of computers attack one website or server at the same time by sending too many requests.
+
+> Because of that:
+> - The server gets overloaded
+> - It becomes slow
+> - or it completely crashes
+> - Real users can’t access it
 
 ##### Types of rate limiting
 
-> Fixed Window (Window Counter) : Time is divided into fixed windows (e.g., every 1 minute), Each request increments a counter in that window, When limit is reached → block.
+> Fixed Window (Window Counter) : You allow a fixed number of requests in a fixed time.
+> 100 requests per minute. After 1 minute → counter resets.
 
 > Sliding Window Log : Stores a timestamp for each request, Removes timestamps older than time window, Count remaining timestamps.
 
@@ -129,17 +136,17 @@ _Simple_
 
 ##### Best Practices
 
-**Use AES-256 for symmetric encryption.**
+- Use AES-256 for symmetric encryption.
 
-**Use RSA/ECC for asymmetric encryption.**
+- Use RSA/ECC for asymmetric encryption
 
-**Never store plain passwords; use bcrypt/argon2.**
+- Never store plain passwords; use bcrypt/argon2
 
-**Store keys securely (env vars, secret manager).**
+- Store keys securely (env vars, secret manager
 
-**Use HTTPS for all client-server communication.**
+- Use HTTPS for all client-server communication
 
-**Always use proper IVs (initialization vectors) for symmetric encryption.**
+Always use proper IVs (initialization vectors) for symmetric encryption
 
 #### What is JWT ?
 

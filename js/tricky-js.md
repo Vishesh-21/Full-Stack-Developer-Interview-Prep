@@ -21,19 +21,21 @@
    fn();
    ```
 
+````
+
 ---
 
 3. ```js
-   const obj = {
-     name: "JS",
-     show() {
-       console.log(this.name);
-     },
-   };
-   const fn = obj.show;
-   fn();
-   // fn() is called without an object, so this is undefined in strict mode (or window in non-strict).
-   ```
+ const obj = {
+   name: "JS",
+   show() {
+     console.log(this.name);
+   },
+ };
+ const fn = obj.show;
+ fn();
+ // fn() is called without an object, so this is undefined in strict mode (or window in non-strict).
+````
 
 ---
 
@@ -131,6 +133,34 @@
 
     console.log("" == []); //true , [] is converted to a primitive. [].toString() → ""
     console.log("" === []); //false ,
+
+    console.log("" + 1 + 0);
+
+    console.log("" - 1 + 0);
+
+    console.log(true + false);
+
+    console.log(true + "1");
+
+    console.log("5" - 2);
+
+    console.log("5" + 2);
+
+    console.log(null + 1);
+
+    console.log(undefined + 1);
+
+    console.log(false == "0");
+
+    console.log(false === "0");
+
+    console.log("" == 0);
+
+    console.log(null == 0);
+
+    console.log(null >= 0);
+
+    console.log([] == ![]);
     ```
 
 ---
@@ -176,6 +206,7 @@
 ---
 
 14. ```js
+    "use strict";
     function test(a) {
       arguments[0] = 10;
       console.log(a);
@@ -424,7 +455,9 @@
           btn.onclick = () => console.log(2);
         </script>
     ```
+
 ---
 
-35. ```js 
-      
+35. ```js
+
+    ```

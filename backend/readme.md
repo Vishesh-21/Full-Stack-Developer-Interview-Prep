@@ -221,3 +221,21 @@ Refresh token rotation means issuing a new refresh token every time the old one 
 4. New refresh token sent to client
 
 **Benefit**: If a refresh token is stolen, it cannot be reused after rotation → improves security.
+
+----
+
+#### Why it’s mandatory to remove console.log in production
+- Security risk – You might accidentally log sensitive data (tokens, passwords, API keys, user info).
+- Performance impact – Excessive logging slows down the app, especially in high-traffic systems.
+- Log pollution – Makes real errors harder to find in production logs.
+- Professional standard – Production apps should use structured logging (e.g., log levels: info, warn, error), not random debug prints.
+- Cost – In cloud environments, logs are stored and charged. More logs = more cost.
+
+**What should we use instead of console.log in production?**
+Use a proper logging library like Winston or Pino with log levels (info, warn, error, debug).
+
+**What is structured logging?**
+Structured logging means logs are stored in a consistent JSON format, making them easy to search and monitor.
+
+**What happens if we forget to remove console.log?**
+Possible data leaks, noisy logs, higher costs, and performance degradation.

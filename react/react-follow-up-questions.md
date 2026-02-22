@@ -165,7 +165,7 @@ React schedules an update, batches it, runs reconciliation, then commits changes
 JSX compiles to React.createElement; conditional rendering just changes what elements are created.And also Conditional rendering is cheap; the cost comes from what you render, not the condition itself.
 
 **What is a stale closure in React hooks?**
-When a function captures outdated state because it wasn’t updated in dependencies.
+A stale closure happens when a function captures an old state or prop value because it was created during a previous render. Common case: inside useEffect, setTimeout, or event handlers — if dependencies aren’t updated, the function keeps using outdated values.
 
 **Why do refs not cause re-renders?**
 Updating ref.current does not trigger reconciliation because refs are mutable containers. Use refs for mutable, non-UI values or DOM access; use state for values that affect rendering.

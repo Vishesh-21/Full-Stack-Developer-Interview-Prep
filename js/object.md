@@ -70,3 +70,16 @@ Optimize objects using hidden classes
 When you delete a property → object shape changes
 
 Engine de-optimizes object → slower performance
+
+**What new does internally**
+
+- Creates empty object
+- Sets its prototype to Object.prototype
+- Binds this to that object
+- Returns the object
+
+**Object.Create** : Creates a new object with a specified prototype. It helps use or we can say this is cleanest way to do pure prototypal inheritance.
+
+**structuredClone(obj)** : can handles Objects, Arrays, Map, Set, Date, Regex, Typed Arrays but don't function , dom nodes.
+
+**JSON.stringify(obj)** : can't handles functions, undefined, Fails on circular references, losses date object type.

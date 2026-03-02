@@ -86,6 +86,7 @@ _Simple_
 > **A DDoS attack (Distributed Denial of Service attack)** A DDoS attack (Distributed Denial of Service) is when a lot of computers attack one website or server at the same time by sending too many requests.
 
 > Because of that:
+>
 > - The server gets overloaded
 > - It becomes slow
 > - or it completely crashes
@@ -215,6 +216,7 @@ When a client sends a refresh token to get a new access token:
 
 Step 2: Rotation
 Refresh token rotation means issuing a new refresh token every time the old one is used:
+
 1. Client sends old refresh token → server validates
 2. Server generates new access token + new refresh token
 3. Server invalidates old refresh token in DB or blacklist
@@ -222,9 +224,10 @@ Refresh token rotation means issuing a new refresh token every time the old one 
 
 **Benefit**: If a refresh token is stolen, it cannot be reused after rotation → improves security.
 
-----
+---
 
 #### Why it’s mandatory to remove console.log in production
+
 - Security risk – You might accidentally log sensitive data (tokens, passwords, API keys, user info).
 - Performance impact – Excessive logging slows down the app, especially in high-traffic systems.
 - Log pollution – Makes real errors harder to find in production logs.

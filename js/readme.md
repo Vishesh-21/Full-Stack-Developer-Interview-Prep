@@ -12,7 +12,7 @@
 ---
 
 4. Throttling : is a technique used to limit how often a function executes over time —
-   even if an event (like scroll, resize, or mouse move) fires continuously. `In throttling, the function runs at most once every X milliseconds.`Throttling ensures a function runs at most once every fixed period of time — no matter how many times the event fires.
+   even if an event (like scroll, resize, or mouse move) fires continuously. `In throttling, the function runs at most once every X milliseconds.`
 
 ---
 

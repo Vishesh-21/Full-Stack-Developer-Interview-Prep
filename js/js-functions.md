@@ -1,16 +1,3 @@
-**What are closures and what is use of closures?**
-A closure is a feature where a function remembers and can access variables from its outer (lexical) scope, even after the outer function has finished executing.
-
-**Use Cases:**
-
-- Data Privacy
-- Maintain State
-- Function Factories
-
-> When exactly is a closure created : Whenever a function is created inside another function and it uses variables from the outer function.
-
----
-
 **What is IIEF? What is the use of IIFE?**
 IIFE stands for Immediately Invoked Function Expression. It is a function that runs as soon as it is defined.
 
@@ -131,9 +118,6 @@ Note > Execution context is managed by the call stack.
 
 **_what is prototype?_**
 Every JavaScript object has an internal reference called [[Prototype]] (accessible via **proto** or Object.getPrototypeOf()). This reference points to another object from which properties and methods can be inherited.
-
-**_How property lookup works?_**
-JavaScript looks on the object itself, If not found, it looks on its prototype, Continues up the prototype chain, Stops at null (end of chain)
 
 **Why use prototype inheritance?**
 

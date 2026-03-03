@@ -83,3 +83,13 @@ Engine de-optimizes object → slower performance
 **structuredClone(obj)** : can handles Objects, Arrays, Map, Set, Date, Regex, Typed Arrays but don't function , dom nodes.
 
 **JSON.stringify(obj)** : can't handles functions, undefined, Fails on circular references, losses date object type.
+
+**Nullish Coalescing (??)** : Returns right-hand value only if left-hand side is: null, undefined. Else Use ?? when 0, false, or "" are valid values.
+
+**Dynamic Imports** : Used for code splitting, Return a promise. Dynamic imports reduce initial bundle size and improve performance metrics like LCP.
+
+**Garbage Collection** : Mark-and-Sweep Algorithm
+
+1. Start from root references (global scope, stack)
+2. Mark all reachable objects
+3. Sweep (remove) unmarked objects

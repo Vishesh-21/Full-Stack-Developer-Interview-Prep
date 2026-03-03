@@ -30,53 +30,17 @@ But with asynchronous programming, it can preform many operation at a time witho
 
 ---
 
-                        ┌────────────────────────────┐
-                        │        JavaScript          │
-                        │        (Single Thread)     │
-                        └────────────┬───────────────┘
-                                     │
-                                     ▼
-                           ┌──────────────────┐
-                           │   Call Stack     │
-                           │ (Executes code)  │
-                           └──────────────────┘
-                                     │
-                   ┌─────────────────┴──────────────────┐
-                   ▼                                    ▼
-       ┌────────────────────┐              ┌────────────────────┐
-       │    Web APIs         │              │      Node APIs     │
-       │ (Browser handles)   │              │ (libuv handles I/O)│
-       │ setTimeout, fetch,  │              │ fs, http, crypto,  │
-       │ event listeners...  │              │ timers, etc.       │
-       └──────────┬──────────┘              └──────────┬──────────┘
-                  │                                    │
-                  ▼                                    ▼
-        ┌──────────────────┐                ┌──────────────────┐
-        │  Callback Queue  │                │ Microtask Queue  │
-        │ (Macrotasks)     │                │ (Promises, async)│
-        │ e.g., setTimeout │                │ e.g., .then(),   │
-        │ I/O callbacks    │                │   await          │
-        └────────┬─────────┘                └────────┬─────────┘
-                 │                                   │
-                 └────────────┬──────────────────────┘
-                              ▼
-                    ┌──────────────────┐
-                    │   Event Loop     │
-                    │ (The Coordinator)│
-                    └──────────────────┘
-                              │
-                              ▼
-                Checks if Call Stack is empty
-                              │
-           ┌──────────────────┴──────────────────┐
-           ▼                                     ▼
+> NodeJs is single threaded for javaScript execution, but multi threaded internally.
 
-Executes Microtasks (Promises) Executes Macrotasks (Timeouts, I/O)
-│ │
-└─────────────────────────────────────┘
-│
-▼
-Repeats the cycle ♻️
+**Event loops** : Event Loop is a mechanism that allows JavaScript (Node.js) to run non-blocking asynchronous code on a single thread.
+
+**How does event loop works**
+
+1. Call Stack executes synchronous code.
+2. Async tasks (setTimeout, fs, API) go to: web apis, libuv
+3. When finished → callback goes to Callback Queue.
+4. Event Loop checks: If Call Stack is empty → move callback to stack.
+5. Execute callback.
 
 ---
 
@@ -97,7 +61,7 @@ Repeats the cycle ♻️
 
 ---
 
-10. Closures : A closure is when a function keeps access to variables from its parent function, even after the parent function has finished running.
+10. Closures : A closure is when a function keeps access to variables from its parent function, even after the parent function has finished running. Closure is needed to preserve state and create private variables in JavaScript.
 
 ---
 
@@ -184,39 +148,12 @@ function curry(fn) {
 }
 ```
 
-> Tricky Question
-
-```javascript
-const a = {};
-
-const b = { key: "b" };
-
-const c = { key: "c" };
-
-a[b] = 123;
-a[c] = 456;
-
-console.log(a[b]);
-```
-
 ---
 
-20. DOM vs BOM
-    > DOM = Webpage structure : It represents HTML + XML documents in a tree structure so JavaScript can access, modify, add, or delete elements.
-
-> BOM = Browser features : It represents browser-specific objects that are NOT part of the webpage.
-
-| Feature             | DOM                                       | BOM                                          |
-| ------------------- | ----------------------------------------- | -------------------------------------------- |
-| **Definition**      | Structured representation of the document | Objects provided by the browser              |
-| **Focus**           | HTML content                              | Browser environment                          |
-| **Standardized by** | W3C                                       | No strict standard                           |
-| **Access**          | document                                  | window (global object)                       |
-| **Examples**        | document, body, forms, elements           | window, screen, navigator, history, location |
-| **Usage**           | Change UI                                 | Use browser functionality                    |
-
----
-
-21. globalThis is a universal global object in JavaScript introduced to solve the problem of accessing the global scope in any environment (browser, Node.js, Web Workers, etc.).
+22. globalThis is a universal global object in JavaScript introduced to solve the problem of accessing the global scope in any environment (browser, Node.js, Web Workers, etc.).
 
 **NOTE** : Regular function inside setTimeout loses object context.
+
+---
+
+**Lexical Environment :** A lexical environment is the place where a function or block keeps track of its variables, along with a reference to its outer environment. Lexical environment enables scopes and closures in javascript.

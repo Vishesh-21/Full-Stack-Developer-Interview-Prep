@@ -4,6 +4,11 @@ The DOM (Document Object Model) is a tree-like representation of an HTML documen
 **What is the difference between DOM and Virtual DOM?**
 The DOM is the actual browser representation, while the Virtual DOM is an in-memory copy used by libraries like React to optimize updates by batching changes.
 
+**Difference between DOM and BOM**
+DOM : Represents the HTML document as a tree structure. used to access elements, modify content, change styles, Add/remove elements. mainly focuses on web content.
+
+BOM : Represents the browser window and environment. used to access url, redirect page, set timers, access browser info. enables browser features for us.
+
 **How does querySelector() differ from getElementById()?**
 querySelector() uses CSS selectors and returns the first match, while getElementById() selects only by ID and is faster.
 
@@ -164,18 +169,6 @@ Layout thrashing occurs when frequent reads and writes to the DOM cause multiple
 **How does requestAnimationFrame optimize DOM updates?**
 requestAnimationFrame schedules DOM updates to occur before the next repaint, allowing the browser to optimize rendering and improve performance by reducing unnecessary reflows and repaints.
 
-**Difference between display: none and visibility: hidden?**
-| Property | `display: none` | `visibility: hidden` |
-| :--------------- | :-------------------------------------------- | :------------------------------------------------- |
-| **Space** | Element does not occupy any space | Element occupies space |
-| **Visibility** | Not visible | Not visible |
-| **DOM Flow** | Removed from document flow (causes reflow) | Remains in document flow (causes repaint only) |
-| **Interactions** | Not interactive (no clicks, etc.) | Not interactive (no clicks, etc.) |
-| **Transitions** | Cannot be animated with CSS transitions | Can be animated with CSS transitions (e.g., opacity) |
-
-**How does IntersectionObserver work internally?**
-It is asynchronous and handled by the browser, avoiding continuous polling like scroll events, thus minimizing layout recalculations.
-
 **What is forced synchronous layout?**
 When JS requests layout info (offsetHeight) immediately after a style change, the browser must flush pending changes instantly.
 
@@ -185,6 +178,3 @@ When JS requests layout info (offsetHeight) immediately after a style change, th
 - Event listeners respond to specific events (click, input, etc.) on elements.
 
 > It observes structural DOM changes, not user interactions, and runs asynchronously in micro-tasks.
-
-**What happens when you set display: none?**
-Element is removed from layout flow and triggers reflow.

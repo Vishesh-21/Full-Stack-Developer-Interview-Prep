@@ -35,7 +35,7 @@ The Virtual DOM (VDOM) is a lightweight copy of the real DOM (Document Object Mo
 
 ##### How React Uses the Virtual DOM
 
- When something changes (like a state update), React creates a new Virtual DOM tree.
+When something changes (like a state update), React creates a new Virtual DOM tree.
 
 - It compares the new Virtual DOM with the old one using a process called diffing.
 - React then finds only the parts that changed.
@@ -100,7 +100,7 @@ The Context API is a built-in React feature that allows you to share data across
 | Context value change    | ✅ Yes              | New context value        |
 | Normal variable change  | ❌ No               | `let x = 10`             |
 | Ref value change        | ❌ No               | `ref.current` update     |
-| Same state value set    | ❌ No               | `setState(prev =prev)` |
+| Same state value set    | ❌ No               | `setState(prev =prev)`   |
 
 ---
 
@@ -231,6 +231,52 @@ The React build process converts developer-friendly source code into optimized s
 
 Vite and Turbopack significantly reduce development build times by avoiding full rebundles and leveraging modern module systems.
 
-Hydration is the process where React attaches event listeners and state to HTML that was rendered on the server.
+##### Understand why functional components dominate
 
-During the React build process, JSX and modern JavaScript are transpiled, bundled, minified, and optimized for production. Development builds prioritize debugging, while production builds focus on performance. Tools like Vite and Turbopack improve build speed and developer experience by leveraging modern module systems. In SSR frameworks like Next.js, hydration connects server-rendered HTML with client-side React to make the UI interactive.
+- Simpler and more readable than class components
+- No this binding issues
+- Hooks enable state and lifecycle logic cleanly
+- Less boilerplate compared to classes
+- Better logic reuse via custom hooks
+- Better logic reuse via custom hooks
+- Easier testing and composition
+
+##### What enables interruptible rendering?
+
+Answer: Fiber architecture breaks rendering into incremental units that can be scheduled and prioritized.
+
+##### Why do large lists hurt performance?
+
+Answer: Too many DOM nodes increase memory usage and slow reconciliation.
+
+##### Why does fetch not reject on 404/500?
+
+Answer: Because fetch only rejects on network failure; HTTP errors are still valid responses and must be handled manually.
+
+<!--
+1. Advanced API architecture patterns
+
+2. Real-time updates with WebSockets
+
+3. Offline-first strategies
+
+4. Scalable state management architecture
+
+5. Micro-frontend architecture
+
+6. Monorepo structure
+
+7. Enterprise-level React patterns
+
+8. CI/CD integration for React apps
+
+9. Concurrent rendering
+
+10. Suspense for data fetching
+
+11. Error boundaries
+
+12. Portals
+
+13. HOCs vs hooks
+-->

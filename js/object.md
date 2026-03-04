@@ -17,15 +17,9 @@ The hasOwnProperty() method is used to check if an object has a specific propert
 **What is the difference between enumerable and non-enumerable properties?**
 Enumerable properties show up in loops like for...in and in Object.keys(). Non-enumerable properties exist but are hidden from iteration. By default, properties added to an object are enumerable, but you can make them non-enumerable using Object.defineProperty() method. Non-enumerable properties are typically used for internal or private data that should not be exposed during enumeration.
 
-**Function to deep clone an object**
-
 **How do you compare two object in javascript**
 objects are compared by reference, not by value. This means that even if two objects have the same properties and values, they are considered different objects in memory. Therefore, using the strict equality operator (===) or the equality operator (==) will return false when comparing two different objects, even if their contents are identical.
 //function to compare the object
-
-**How do you check is object is empty or not**
-
-**How do you find duplicates object in array**
 
 **Check if the specific property exist in object or not**
 using in and hasOwnProperty, hasOwn
@@ -93,3 +87,45 @@ Engine de-optimizes object → slower performance
 1. Start from root references (global scope, stack)
 2. Mark all reachable objects
 3. Sweep (remove) unmarked objects
+
+**Object Problems**
+
+- Function to deep copy an object
+- function to deep compare an object
+- function to merge two objects
+- function to count occurrences of each ID in an array of objects
+- function to check if a specific property exists in an object or not
+- function to create an object with a specific prototype
+- function to freeze an object and prevent modifications
+- function to seal an object and prevent adding or removing properties
+- function to prevent extensions on an object and allow modifications to existing properties
+- function to check if an object is frozen, sealed, or extensible
+- function to list all own properties of an object
+- function to list all inherited properties of an object
+- function to check the given object is empty or not
+- function to find duplicate objects from array
+- function to delete property from object
+- What’s the difference between comparing objects using == vs ===?
+- How does Object.create() differ from {} or new Object()?
+- What is the difference between dot notation and bracket notation?
+- How do you use computed property names in objects?
+- How can you dynamically add or access object properties?
+- How do you find the object with the maximum/minimum value in an array?
+- How do you group an array of objects by a property (e.g., age)?
+- How do you remove duplicates from an array of objects?
+- How do you sort an array of objects by a key?
+- Explain spread/rest operators with objects.
+- What is Object.hasOwn() and how is it different from hasOwnProperty?
+- How would you merge multiple nested objects without losing nested data?
+- How would you deeply clone an object that has arrays and nested objects?
+- How would you count the occurrences of a value inside an array of objects?
+- How would you convert an array of key-value pairs into an object?
+- How do you remove duplicate objects from an array?
+- What is immutability in objects?
+- How does garbage collection work with objects?
+- How does JS handle object references in memory?
+- Flatten a nested object.
+- Convert object to query string.
+- Group array of objects by a key.
+- Count frequency of properties in object.
+- Convert object keys from camelCase to snake_case.
